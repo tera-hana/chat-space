@@ -1,0 +1,82 @@
+.wrapper
+  .chat-side
+    .side-header
+      .side-header__box
+        %p.side-header__box__username
+          = current_user.name
+          %ul.side-header__box__menu
+            %li.side-header__box__edit-user
+              = link_to new_group_path do
+                = icon('fas', 'edit')
+            %li.side-header__box__new__group
+              = link_to edit_user_path(current_user) do
+                = icon('fas', 'cog') 
+              
+    -# .groups
+    -#   .group
+    -#     .group__name
+    -#       = group.name
+    -#     .group__message
+    -#       メッセージはまだありません。
+
+    .groups
+      .group
+        .group__name
+          グループ1
+        .group__message
+          新着メッセージ1
+      .group
+        .group__name
+          グループ2
+        .group__message
+          新着メッセージ2
+      .group
+        .group__name
+          グループ3
+        .group__message
+          新着メッセージ3
+          
+  .chat-main
+    .main-header
+      .main-header__left-box
+        .main-header__left-box__group-name
+          テストグループ
+        %ul.main__header__left-box__member-list
+          Member : tera_san        
+      .main-header__edit-btn
+        = link_to "Edit", "#", class: "main-header__edit-btn--link"
+        
+    .messages
+      .message
+        .message__upper-info
+          .message__upper-info__talker
+            tera_san
+          .message__upper-info__date
+            2019/12/16(Mon) 15:44:29
+        .message__text
+          ワニワニワニワニワニワニワニワニ
+      .message
+        .message__upper-info
+          .message__upper-info__talker
+            yama_san
+          .message__upper-info__date
+            2019/12/16(Mon) 16:44:29
+        .message__text
+          ネコネコネコネコネコネコネコネコ
+      .message
+        .message__upper-info
+          .message__upper-info__talker
+            tani_san
+          .message__upper-info__date
+            2019/12/16(Mon) 17:44:29
+        .message__text
+          イヌイヌイヌイヌイヌイヌイヌイヌ
+
+    .form
+      %form.new_message
+        .input-box
+          %input{placeholder: "type a message", class: "input-box__text", type: "text", neme: "message[content]", id: "message_content"}
+            %label{class: "input-box__image", for: "message_image"}
+              = icon('fa', 'image')          
+              %input{class: "input-box__image__file", type: "file", name: "message[image]", id: "message_image"} 
+        %input{type: "submit", name: "commit", value: "Send", class: "submit-btn"} 
