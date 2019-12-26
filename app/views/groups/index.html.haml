@@ -12,29 +12,14 @@
               = link_to edit_user_path(current_user) do
                 = icon('fas', 'cog') 
               
-    -# .groups
-    -#   .group
-    -#     .group__name
-    -#       = group.name
-    -#     .group__message
-    -#       メッセージはまだありません。
-
     .groups
-      .group
-        .group__name
-          グループ1
-        .group__message
-          新着メッセージ1
-      .group
-        .group__name
-          グループ2
-        .group__message
-          新着メッセージ2
-      .group
-        .group__name
-          グループ3
-        .group__message
-          新着メッセージ3
+      - current_user.groups.each do |group|
+        .group
+          = link_to '#' do
+            .group__name
+              = group.name
+            .group__message
+              メッセージはまだありません。
           
   .chat-main
     .main-header
