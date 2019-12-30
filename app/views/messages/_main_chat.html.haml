@@ -1,0 +1,23 @@
+.chat-main
+  .main-header
+    .main-header__left-box
+      .main-header__left-box__group-name
+        テストグループ
+      %ul.main__header__left-box__member-list
+        Member : tera_san        
+    .main-header__edit-btn
+      = link_to "Edit", "#", class: "main-header__edit-btn--link"
+
+
+
+  .messages
+    = render @messages
+
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+      .input-box
+        = f.label :image, class: 'input-box__image' do
+          = icon('fa', 'image', class: 'icon')
+          = f.file_field :image, class: 'input-box__image__file'
+      = f.submit 'Send', class: 'submit-btn'
