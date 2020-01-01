@@ -2,11 +2,12 @@
   .main-header
     .main-header__left-box
       .main-header__left-box__group-name
-        テストグループ
+        = @group.name
       %ul.main__header__left-box__member-list
-        Member : tera_san        
+      - @members.each do |member|
+        = member.name  
     .main-header__edit-btn
-      = link_to "Edit", "#", class: "main-header__edit-btn--link"
+      = link_to "Edit", edit_group_path(params[:group_id]), method: :get, class: "main-header__edit-btn--link"
 
 
 
