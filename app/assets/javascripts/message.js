@@ -58,6 +58,12 @@ $(function(){
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
       $('form')[0].reset();
     })
+    .fail(function(){
+      alert('error');
+    })
+    .always(function(){
+      $('.submit-btn').prop("disabled",false);
+    })
   })
 });
 });
