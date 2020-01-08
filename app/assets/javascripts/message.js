@@ -59,7 +59,7 @@ $(function(){
       $('form')[0].reset();
     })
     .fail(function(){
-      alert('error');
+      alert('メッセージ送信に失敗しました');
     })
     .always(function(){
       $('.submit-btn').prop("disabled",false);
