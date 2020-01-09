@@ -40,7 +40,7 @@ $(function() {
         }
       })
       .fail(function() {
-
+        alert("ユーザー検索に失敗しました");
     });
   });
 });
