@@ -1,4 +1,5 @@
 $(function() {
+  // ユーザ検索で候補が見つかった場合のビュー
   function addUser(user) {
     let html = `
       <div class="chat-group-user clearfix">
@@ -8,7 +9,7 @@ $(function() {
     `;
     $("#user-search-result").append(html);
   }
-
+  // ユーザ検索で候補が見つからなかった場合のビュー
   function addNoUser() {
     let html = `
       <div class="chat-group-user clearfix">
@@ -17,6 +18,7 @@ $(function() {
     `;
     $("#user-search-result").append(html);
   }
+  // テキストフィールド入力時にイベント発火
   $("#user-search-field").on("keyup", function() {
     let input = $("#user-search-field").val();
     $.ajax({
@@ -25,6 +27,7 @@ $(function() {
       data: { keyword: input },
       dataType: "json"
     })
+    // emptyメソッドでイベント発火するたびに出力されている情報を削除する
       .done(function(users) {
         $("#user-search-result").empty();
 
@@ -38,6 +41,7 @@ $(function() {
           addNoUser();
         }
       })
+      // 通信に失敗した場合の処理
       .fail(function() {
         alert("ユーザー検索に失敗しました");
     });
