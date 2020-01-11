@@ -31,6 +31,7 @@ $(function() {
   function addMember(userId) {
     let html = `<input value="${userId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userId}" />`;
     $(`#${userId}`).append(html);
+    console.log(html)
   }
   // テキストフィールド入力時にイベント発火
   $("#user-search-field").on("keyup", function() {
@@ -62,7 +63,6 @@ $(function() {
 });
 // 追加ボタンが押された時にイベント発火
   $(document).on("click", ".chat-group-user__btn--add", function() {
-    console.log('イベント発火')
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
     $(this)
