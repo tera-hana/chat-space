@@ -71,6 +71,7 @@ $(function() {
     addDeleteUser(userName, userId);
     addMember(userId);
   });
+  // 削除ボタンが押された時にイベント発火
   $(document).on("click", ".chat-group-user__btn--remove", function() {
     $(this)
       .parent()
