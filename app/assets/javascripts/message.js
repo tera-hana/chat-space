@@ -1,4 +1,4 @@
-$(function(){ 
+$(function() { 
   function buildHTML(message){
    if ( message.image ) {
      var html =
@@ -39,6 +39,7 @@ $(function(){
      return html;
    };
  }
+//  インクリメンタルサーチ機能
 $(function(){
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -66,4 +67,22 @@ $(function(){
     })
   })
 });
+// 自動更新機能
+$(function() {
+    var reloadMessages = function() {
+      last_message_id = $('.message:last').data("message-id");
+      $.ajax({
+        url: "api/messages",
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        console.log('success');
+      })
+      .fail(function() {
+        console.log('error');
+      });
+    };
+  });
 });
