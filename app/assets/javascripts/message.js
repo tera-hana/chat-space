@@ -30,7 +30,6 @@ $(function() {
              ${message.created_at}
            </div>
          </div>
-
          <div class="message__text">
            <p class="message__text">
              ${message.content}
@@ -38,7 +37,7 @@ $(function() {
          </div>
        </div>`
      return html;
-   } else if (message.image) {
+   } else {
      var html = 
      `<div class="message" data-message-id=${message.id}></div>
          <div class="message__upper-info">
@@ -56,6 +55,8 @@ $(function() {
          </div>
          <img src=${message.image} >
        </div>`
+       return html;
+      //  $('.messages').append(html);
    }
  }
 //  インクリメンタルサーチ機能
