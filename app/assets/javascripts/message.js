@@ -56,7 +56,6 @@ $(function() {
          <img src=${message.image} >
        </div>`
        return html;
-      //  $('.messages').append(html);
    }
  }
 //  インクリメンタルサーチ機能
