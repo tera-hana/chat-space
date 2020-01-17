@@ -31,7 +31,6 @@ $(function() {
   function addMember(userId) {
     let html = `<input value="${userId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userId}" />`;
     $(`#${userId}`).append(html);
-    console.log(html)
   }
   // テキストフィールド入力時にイベント発火
   $("#user-search-field").on("keyup", function() {
