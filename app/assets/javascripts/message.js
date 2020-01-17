@@ -58,7 +58,7 @@ $(function() {
        return html;
    }
  }
-//  インクリメンタルサーチ機能
+//  非同期通信
 $(function(){
   $('#new_message').on('submit', function(e){
     e.preventDefault()
@@ -104,8 +104,6 @@ $(function(){
       });
       $('.messages').append(insertHTML);
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
-      $("#new_message")[0].reset();
-      $(".submit-btn").prop("disabled", false);
     }
     })
     .fail(function() {
